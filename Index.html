@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Grand Surprise For Kanishka! 🍫🧸💖</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* --- Floating Background Hearts --- */
+        .bg-heart {
+            position: absolute;
+            bottom: -20px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 20px;
+            animation: floatUp 5s linear infinite;
+            z-index: 0;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.8); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.4); opacity: 0; }
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 25px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            text-align: center;
+            max-width: 440px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+        h1 {
+            color: #ff2a5f;
+            font-size: 22px;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .teddy {
+            font-size: 45px;
+            margin: 10px 0;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .page {
+            display: none;
+            margin-top: 15px;
+            text-align: left;
+            background: #fff0f3;
+            padding: 20px;
+            border-radius: 20px;
+            border-left: 5px solid #ff2a5f;
+            color: #444;
+            font-size: 14px;
+            line-height: 1.6;
+            max-height: 380px;
+            overflow-y: auto;
+        }
+        .page.active {
+            display: block;
+        }
+        .question {
+            font-size: 13px;
+            color: #222;
+            margin-bottom: 6px;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+        .options button {
+            background-color: white;
+            color: #ff2a5f;
+            border: 2px solid #ff2a5f;
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 3px 2px;
+            transition: 0.2s;
+            font-weight: normal;
+        }
+        .options button:hover {
+            background-color: #ff2a5f;
+            color: white;
+        }
+        .feedback {
+            margin-top: 4px;
+            font-weight: bold;
+            color: #d01c45;
+            font-size: 12px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .main-btn {
+            background-color: #ff2a5f;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 42, 95, 0.4);
+            transition: 0.3s;
+            font-weight: bold;
+            width: 100%;
+        }
+        .main-btn:hover {
+            background-color: #e01b4e;
+        }
+        .next-btn {
+            background-color: #ff2a5f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .chocolates {
+            font-size: 28px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        /* --- Photo styling --- */
+        .photo-grid {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        .moment-box {
+            width: 48%;
+            height: 160px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #ff758c;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .moment-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .childhood-box {
+            width: 100%;
+            max-height: 220px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #ff758c;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 12px 0;
+            text-align: center;
+        }
+        .childhood-box img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+        .shayari-box {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-style: italic;
+            color: #d01c45;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            margin-top: 10px;
+            border: 1px dashed #ff758c;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Background Hearts -->
+    <div class="bg-heart" style="left: 10%; animation-duration: 4s;">❤️</div>
+    <div class="bg-heart" style="left: 30%; animation-duration: 6s; animation-delay: 1s;">💖</div>
+    <div class="bg-heart" style="left: 50%; animation-duration: 5s; animation-delay: 2s;">💕</div>
+    <div class="bg-heart" style="left: 70%; animation-duration: 7s; animation-delay: 0.5s;">💗</div>
+    <div class="bg-heart" style="left: 90%; animation-duration: 4.5s; animation-delay: 1.5s;">❤️</div>
+
+    <div class="card">
+        <h1>✨ Kanishka Ka Magic Box ✨</h1>
+        <div class="teddy">🧸 🍫 💖</div>
+
+        <!-- PAGE 1: Shuruat -->
+        <div id="page1" class="page active">
+            <h3 style="color: #ff2a5f; margin-top:0;">Page 1: Special Entry 💌</h3>
+            <div class="shayari-box" style="font-size: 13px;">
+                Hui jo nigaahe nigaahon se takraar, <br>
+                Toh samajh lo ho gaya humein tumse pyaar! 🥰
+            </div>
+            <br>
+            Kanishka, jabse tum meri zindagi mein aayi ho, har din kisi festival jaisa lagta hai. Tumhari ek muskan mera poora din banane ke liye kaafi hoti hai. Is chote se digital surprise mein tumhare liye dher saari meethi baatein hain! 
+            <br><br>
+            <button class="next-btn" onclick="nextPage(2)">Aage Badhein ➡️</button>
+        </div>
+
+        <!-- PAGE 2: Romantic Questions -->
+        <div id="page2" class="page">
+            <h3 style="color: #ff2a5f; margin-top:0;">Page 2: Romantic Sawaal 💖</h3>
+            
+            <div class="question">1. Jab aap mujhse baat karti hain, toh aapko kaisa lagta hai? 🥰</div>
+            <div class="options">
+                <button onclick="setFeedback('fb1', 'Sahi jawab! Mere liye bhi aapka sath sabse special hai! ❤️')">Duniya ki saari khushi mil jaati hai ✨</button>
+                <button onclick="setFeedback('fb1', 'Aww! Yeh sun kar bohot acha laga! 🌸')">Bohot zyada sukoon milta hai 🫶</button>
+            </div>
+            <div id="fb1" class="feedback"></div>
+
+            <div class="question">2. Agar mujhe ek word mein describe karna ho, toh kya kahinngi? 🤭</div>
+            <div class="options">
+                <button onclick="setFeedback('fb2', 'Haha, aur aap meri poori duniya ho! 🥰')">Mera Sab Kuch ❤️</button>
+                <button onclick="setFeedback('fb2', 'Ekdum sahi! Hamesha aise hi rahunga! 🤝')">Mera Favorite Insaan ✨</button>
+            </div>
+            <div id="fb2" class="feedback"></div>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="nextPage(1)">⬅️ Piche</button>
+                <button class="next-btn" onclick="nextPage(3)">Aage ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 3: Flirty Questions -->
+        <div id="page3" class="page">
+            <h3 style="color: #ff2a5f; margin-top:0;">Page 3: Thode Fun Sawaal 😉</h3>
+
+            <div class="question">3. Kya aapko pata hai aap mere liye kitni special ho? 🌸</div>
+            <div class="options">
+                <button onclick="setFeedback('fb3', 'Haan bilkul! Aapko yeh baat hamesha yaad rakhni chahiye! ❤️')">Haan, ache se pata hai! 🥰</button>
+                <button onclick="setFeedback('fb3', 'Toh sun lo: You are my world! 🌍')">Nahi, mujhe aur batao! 🙈</button>
+            </div>
+            <div id="fb3" class="feedback"></div>
+
+            <div class="question">4. Agar main aapse abhi milne aaun, toh aap sabse pehle kya karngi? 🏃‍♂️💨</div>
+            <div class="options">
+                <button onclick="setFeedback('fb4', 'Hayee! Main bhi yahi chahta hoon! 🧸❤️')">Zor se gale laga lungi! 🤗</button>
+                <button onclick="setFeedback('fb4', 'Haha, pehle daant padegi phir pyaar! 😜')">Pehle gussa karungi phir hug karungi! 🤭</button>
+            </div>
+            <div id="fb4" class="feedback"></div>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="nextPage(2)">⬅️ Piche</button>
+                <button class="next-btn" onclick="nextPage(4)">Aage ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 4: Deep Love Questions -->
+        <div id="page4" class="page">
+            <h3 style="color: #ff2a5f; margin-top:0;">Page 4: Dil Ki Baatein 💌</h3>
+
+            <div class="question">5. Zindagi ke har safar mein mera sath kaun nibhayega? 🤝</div>
+            <div class="options">
+                <button onclick="setFeedback('fb5', 'Pakka vaada! Hamesha sath rahenge! ❤️')">Sirf aur sirf Kanishka! 🥰</button>
+                <button onclick="setFeedback('fb5', 'Aww, sweetest answer ever! ✨')">Hum dono hamesha sath rahenge 💖</button>
+            </div>
+            <div id="fb5" class="feedback"></div>
+
+            <div class="question">6. Kanishka, kya aap mujhse hamesha aise hi pyaar karti rahogi? 🥹</div>
+            <div class="options">
+                <button onclick="setFeedback('fb6', 'Love you too endlessly, meri jaan! 🥰💖')">Hamesha aur beinteha! ❤️</button>
+                <button onclick="setFeedback('fb6', 'Aapka yeh jawab mera din ban gaya! ✨')">Pehle se bhi zyada pyaar karungi! 🌹</button>
+            </div>
+            <div id="fb6" class="feedback"></div>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="nextPage(3)">⬅️ Piche</button>
+                <button class="next-btn" onclick="nextPage(5)">Aage ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 5: Couple Photos (Set by me) -->
+        <div id="page5" class="page">
+            <h3 style="color: #ff2a5f; margin-top:0;">Page 5: Hamare Kuch Khaas Pal 💕</h3>
+            Kanishka, jab bhi main humari baaton ko yaad karta hoon, chehre par apne aap muskan aa jaati hai. Hum dono ki jodi ekdum best hai, aur yeh photos us pyaar ki ek choti si jhalak hain. 🥰<br><br>
+            
+            <div class="photo-grid">
+                <div class="moment-box">
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=500&auto=format&fit=crop" alt="Romantic Couple 1">
+                </div>
+                <div class="moment-box">
+                    <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=500&auto=format&fit=crop" alt="Romantic Couple 2">
+                </div>
+            </div>
+
+            Aap meri life ki wo sabse special insaan ho jisse main beinteha pyaar karta hoon. Hamesha aise hi paas rehna! ✨<br><br>
+            <div class="btn-container">
+                <button class="next-btn" onclick="nextPage(4)">⬅️ Piche</button>
+                <button class="next-btn" onclick="nextPage(6)">Aage ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 6: Childhood Photo (Set by me) -->
+        <div id="page6" class="page">
+            <h3 style="color: #ff2a5f; margin-top:0;">Page 6: Chhoti Kanishka! 🧸🍼</h3>
+            Aww, zara is photo ko toh dekho! 😍 Kanishka, aap bachpan mein bhi itni zyada pyaari aur doll jaisi lagti thi ki dekh kar hi pyaar aa jaye. Pata nahi kis angle se aisi cute gudiya ban kar aayi thi duniya mein! 🥰<br><br>
+            
+            <div class="childhood-box">
+                <img src="https://images.unsplash.com/photo-1519238263530-99bbb117946c?q=80&w=500&auto=format&fit=crop" alt="Cute Baby Girl">
+            </div>
+
+            Bachpan se hi tumhari yeh maasoomiyat logon ka dil jeet leti hogi. Sach mein, tum tab bhi kamal ki thi aur aaj bhi sabse alag ho! ✨💖<br><br>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="nextPage(5)">⬅️ Piche</button>
+                <button class="next-btn" onclick="nextPage(7)">Aage ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 7: Chocolate Treat! -->
+        <div id="page7" class="page">
+            <h3 style="color: #ff2a5f; margin-top:0;">Page 7: Virtual Chocolate Treat! 🍫</h3>
+            Kyunki aap duniya ki sabse pyaari ladki ho, toh sirf baaton se thodi chalega! Aapke liye yeh virtual chocolates hain! 😋<br>
+            <div class="chocolates">
+                🍫 🍬 🍩 🎂 💖
+            </div>
+            <div class="question">7. Aapko sabse zyada kaun si chocolate pasand hai?</div>
+            <div class="options">
+                <button onclick="setFeedback('fb7', 'Noted! Agli baar jab milenge wahi launga! 🤤🍫')">Dairy Milk Silk / Rocher ❤️</button>
+                <button onclick="setFeedback('fb7', 'Wah! Meetha pyaar aur meethi chocolate! 🥰')">KitKat / Munch 🍫</button>
+            </div>
+            <div id="fb7" class="feedback"></div>
+            
+            <div class="btn-container">
+                <button class="next-btn" onclick="nextPage(6)">⬅️ Piche</button>
+                <button class="next-btn" onclick="nextPage(8)">Aage ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 8: Grand Finale -->
+        <div id="page8" class="page">
+            <h3 style="color: #ff2a5f; margin-top:0;">Page 8: Dil Ki Gehraai Se 🧸❤️</h3>
+            Aapka ek chota sa message mera pura din bana deta hai. Kanishka, you truly mean the absolute world to me. Chahe kuch bhi ho jaye, main hamesha aapke sath hoon, aapki care karne ke liye aur aapse bohot saara pyaar karne ke liye. 🥰💖✨<br><br>
+            Aap hamesha mere liye sabse khaas rahogi. Love you so, so much! 🧸
+            <br><br>
+            <button class="next-btn" onclick="nextPage(7)">⬅️ Piche Jayein</button>
+        </div>
+
+        <!-- Initial Start Button -->
+        <button class="main-btn" id="startBtn" onclick="startSurprise()">Open Surprise 🎁</button>
+    </div>
+
+    <script>
+        function startSurprise() {
+            document.getElementById("startBtn").style.display = "none";
+            document.getElementById("page1").classList.add("active");
+        }
+
+        function nextPage(pageNum) {
+            for (let i = 1; i <= 8; i++) {
+                document.getElementById("page" + i).classList.remove("active");
+            }
+            document.getElementById("page" + pageNum).classList.add("active");
+        }
+
+        function setFeedback(id, text) {
+            document.getElementById(id).innerText = text;
+        }
+    </script>
+
+</body>
+  </html>
+  
